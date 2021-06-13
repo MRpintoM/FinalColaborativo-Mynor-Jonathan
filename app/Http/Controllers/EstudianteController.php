@@ -5,9 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Estudiante;
 use App\Models\Genero;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EstudianteController extends Controller
 {
+    public function Welc()
+    {
+
+        return \view('welcome');
+
+    }
     public function registrar(){
         $generos = Genero::all();
         return view('formulario', compact('generos'));
@@ -51,5 +58,15 @@ class EstudianteController extends Controller
             return redirect()->route('registrar')->with('warning', 'Ocurrio un error al registrar el producto. ');
         }
         return redirect()->route('registrar')->with('success', 'Registro realizado exitosamente');
+    }
+
+    public function mostrar(){
+        $estudiantes = DB::table('estudiante')
+            ->join('genero','genero.id_genero','=','estudiante.genero')
+            ->select('estudiante.*','genero.genero as genero')
+            ->get();
+
+        return view('consultaestudiante',compact('estudiantes'));
+
     }
 }

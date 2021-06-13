@@ -11,34 +11,38 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-    <a class="navbar-brand" href="/">Inicio</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+<nav style="background:-webkit-linear-gradient(left top,#E430FD  ,#45B39D);" class="navbar navbar-expand-lg navbar-dark   shadow-sm p-2 rounded-bottom mb-5">
+    <a class="navbar-brand" href="{{route('welcome')}}"  >  Examen Final   </a>
+
+    <button class="navbar-toggler" type="button" data-tog   gle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span  class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div  id="navbarSupportedContent">
+            <a class="navbar-brand "  href="index.html" style=" color:black; "><i class="fas fa-home"></i></a>
+    </div>
+
+    <div class="collapse navbar-collapse  " id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-
-
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Registro
+            <li class="nav-item dropdown  "  >
+                <a style="color:white" class="nav-link dropdown-toggle  " href="#" id="navbarDropdown" role="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Formulario
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="menuc" style="background:-webkit-linear-gradient(left top,#45B39D  ,#FD3030);" >
                     <a class="dropdown-item" href="{{route('registrar')}}">Registrar Estudiante</a>
                     <a class="dropdown-item" href="{{route('registrarge')}}">Registrar Genero</a>
-                    <a class="dropdown-item" href="#">Consulta de Estudiante</a>
-                    <a class="dropdown-item" href="#">Consulta de Genero</a>
-
-                    <div class="dropdown-divider"></div>
-
                 </div>
             </li>
-
-
+            <li class="nav-item dropdown " >
+                <a style="color:white" class="nav-link dropdown-toggle"  href="#" id="navbarDropdown" role="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Mostrar Datos
+                </a >
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="menuc" style="background:-webkit-linear-gradient(left top,#E430FD  ,#30FD37 );">
+                    <a class="dropdown-item" href="{{route('mostrar')}}">Consulta de Estudiante</a>
+                    <a class="dropdown-item" href="{{route('mostrarge')}}">Consulta de Genero</a>
+                </div>
+            </li>
         </ul>
-
     </div>
 </nav>
 <div class="container mt-2 bg-light shadow-sm p-0">

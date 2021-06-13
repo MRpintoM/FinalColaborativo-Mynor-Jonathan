@@ -34,4 +34,10 @@ class GeneroController extends Controller
         return redirect()->route('registrarge')->with('success', 'Registro realizado exitosamente');
 
     }
+    public function mostrarge()
+    {
+        $datos['generos']=Genero::paginate(10);
+        return view('mostrarge',$datos);
+    }
+
 }
