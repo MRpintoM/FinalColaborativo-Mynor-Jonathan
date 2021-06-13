@@ -12,7 +12,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.planilla');
 });
+
+Route::get('/formulario', [\App\Http\Controllers\EstudianteController::class, 'registrar'])->name('registrar');
+Route::post('/guardar', [\App\Http\Controllers\EstudianteController::class, 'guardar'])->name('guardar');
+
+
+Route::get('/formulariogenero', [\App\Http\Controllers\GeneroController::class, 'form'])->name('registrarge');
+Route::post('/guardargenero', [\App\Http\Controllers\GeneroController::class, 'save'])->name('guardargene');

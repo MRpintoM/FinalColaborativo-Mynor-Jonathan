@@ -7,79 +7,31 @@ use Illuminate\Http\Request;
 
 class GeneroController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
+    public function form(){
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return view('genero');
     }
+    public function save(Request $request){
+        $data = request()->validate([
+            'nombrege'=>'required|max:75',
+        ],[
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+            'nombrege.required'=>'El campo Genero no debe estar vacio.',
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Genero  $genero
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Genero $genero)
-    {
-        //
-    }
+            'nombrege.max'=>'El Genero no puede tener más 75 caracteres.',
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Genero  $genero
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Genero $genero)
-    {
-        //
-    }
+        ]);
+        try{
+            $generos= Genero::create([
+                'genero'=>$data['nombrege'],
+            ]);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Genero  $genero
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Genero $genero)
-    {
-        //
-    }
+        }
+        catch(QueryException $queryException){ //capturamos el erro en el catch
+            return redirect()->route('registrarge')->with('warning', 'Ocurrio un error al registrar el producto. ');
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Genero  $genero
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Genero $genero)
-    {
-        //
+        return redirect()->route('registrarge')->with('success', 'Registro realizado exitosamente');
+
     }
 }

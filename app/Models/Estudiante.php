@@ -7,5 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Estudiante extends Model
 {
-    use HasFactory;
+    protected $table='estudiante';
+    public $timestamps=false;
+    protected $fillable=[
+        'id_estudiante', 'nombre', 'apellido', 'carnet', 'direccion', 'telefono','genero', 'fecha'
+    ];
+
+    protected $primaryKey='id_estudiante';
 }

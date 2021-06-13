@@ -28,8 +28,8 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{route('registrar')}}">Registrar Estudiante</a>
                     <a class="dropdown-item" href="{{route('registrarge')}}">Registrar Genero</a>
-                    <a class="dropdown-item" href="{{route('mostrar')}}">Consulta de Estudiante</a>
-                    <a class="dropdown-item" href="{{route('mostrarge')}}">Consulta de Genero</a>
+                    <a class="dropdown-item" href="#">Consulta de Estudiante</a>
+                    <a class="dropdown-item" href="#">Consulta de Genero</a>
 
                     <div class="dropdown-divider"></div>
 

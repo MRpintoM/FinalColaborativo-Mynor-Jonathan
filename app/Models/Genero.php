@@ -7,5 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Genero extends Model
 {
-    use HasFactory;
+    protected $table='genero';
+    public $timestamps=false;
+    protected $fillable=[
+        'id_genero', 'genero'
+    ];
+
+    protected $primaryKey='id_genero';
 }
